@@ -16,6 +16,7 @@ router.get('/', async (req, res) => {
     }
     res.status(200).json(data);
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 });
@@ -33,6 +34,7 @@ router.get('/:id', async (req, res) => {
     }
     res.status(200).json(data);
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 });
@@ -43,6 +45,7 @@ router.post('/', async (req, res) => {
     const data = await Tag.create(req.body);
     res.status(200).json(data);
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 });
@@ -61,6 +64,7 @@ router.put('/:id', async (req, res) => {
     }
     res.status(200).json({message: 'Update successful!'});
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 });
@@ -79,6 +83,7 @@ router.delete('/:id', async (req, res) => {
     }
     res.status(200).json({message: 'Delete successful!'});
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 });
