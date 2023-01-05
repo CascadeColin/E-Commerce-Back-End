@@ -49,6 +49,20 @@ router.post('/', async (req, res) => {
   // create a new category
   try {
     const data = await Category.create(req.body);
+    // if request contains at least 1 product, bulk create them in products model
+    
+    // FIXME: create products if included in request
+    // if (req.body.products.length) {
+    //   const productIdArr = req.body.products.map(product_id => {
+    //     return {
+    //       product_name: req.body.products.product_name,
+    //       price: req.body.products.price,
+    //       stock: req.body.products.stock,
+    //     }
+    //   })
+    //   return Product.bulkCreate(productIdArr);
+    // }
+    
     res.status(200).json(data);
   } catch (err) {
     console.log(err);
