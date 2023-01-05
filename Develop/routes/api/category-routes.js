@@ -47,20 +47,22 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   // create a new category
+  console.log(req.body.products[0].price)
   try {
     const data = await Category.create(req.body);
     // if request contains at least 1 product, bulk create them in products model
     
     // FIXME: create products if included in request
     // if (req.body.products.length) {
-    //   const productIdArr = req.body.products.map(product_id => {
+    //   const productIdArr = req.body.products.map(product => {
     //     return {
-    //       product_name: req.body.products.product_name,
-    //       price: req.body.products.price,
-    //       stock: req.body.products.stock,
+    //       product_name: product.product_name,
+    //       price: product.price,
+    //       stock: product.stock,
     //     }
     //   })
-    //   return Product.bulkCreate(productIdArr);
+    //   // return Product.bulkCreate(productIdArr);
+    //   console.log(`\n Array: ${productIdArr[0].value}\n`);
     // }
     
     res.status(200).json(data);
