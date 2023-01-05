@@ -47,7 +47,6 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   // create a new category
-  console.log(req.body.products[0].price)
   try {
     const data = await Category.create(req.body);
     // if request contains at least 1 product, bulk create them in products model
