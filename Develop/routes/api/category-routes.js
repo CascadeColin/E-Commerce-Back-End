@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
   // be sure to include its associated Products
   try {
     const data = await Category.findAll({
-      include: [{ model: Product }]
+      include: [{ model: Product }],
     });
     if (!data) {
       res.status(404).json({message: 'No categories to display'});
@@ -80,7 +80,7 @@ router.delete('/:id', async (req, res) => {
       }
     });
     if (!data) {
-      res.status(404).json({message: 'Delete failed - ID does not exist.'});
+      res.status(404).json({message: 'Category does not exist at this ID.'});
       return;
     }
     res.status(200).json({message: 'Delete successful!'});
